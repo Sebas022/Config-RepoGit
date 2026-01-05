@@ -1,0 +1,14 @@
+# api-gateway.yml
+server.port: 8080
+spring:
+  cloud:
+    gateway:
+      # Permite que el Gateway descubra servicios por su nombre (MS-USER)
+      discovery.locator.enabled: true
+      routes:
+        # Define una ruta:
+        # Si llega una petición a /users/**, la manda al servicio llamado MS-USER (en Eureka)
+        - id: ms-user
+          uri: lb://MS-USER
+          predicates:
+            - Path=/users/**
