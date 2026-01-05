@@ -1,0 +1,7 @@
+# ms-seguridad.yml
+# Puerto 0: Spring Boot le asignará un puerto disponible automáticamente
+server.port: 0
+eureka:
+  instance:
+    # Registra el servicio en Eureka con un ID único.
+    instance-id: ${spring.application.name}:${random.uuid}
