@@ -14,8 +14,8 @@ spring:
   datasource:
     # URL de conexión a tu BD. Asegúrate de que el puerto (5432) y el nombre de la BD sean correctos.
     url: jdbc:postgresql://localhost:5432/db_users
-    username: tu_usuario_postgres
-    password: tu_password_postgres
+    username: postgres
+    password: admin
   jpa:
     # Dialecto específico de PostgreSQL
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -26,3 +26,4 @@ spring:
       # none: No hace nada.
       ddl-auto: update 
     show-sql: true # Muestra las consultas SQL en la consola
+
