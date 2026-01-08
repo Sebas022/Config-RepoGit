@@ -1,7 +1,28 @@
-# ms-user.yml
-# Puerto 0: Spring Boot le asignará un puerto disponible automáticamente (Ej: 54321)
-server.port: 0
+# Config-RepoGit/ms-user.yml
+
+# --- Configuración de la Aplicación ---
+server:
+  port: 0
+  
+# --- Configuración de Eureka ---
 eureka:
   instance:
-    # Registra el servicio en Eureka con un ID único para evitar conflictos.
     instance-id: ${spring.application.name}:${random.uuid}
+    
+# --- Configuración de la Base de Datos ---
+spring:
+  datasource:
+    # URL de conexión a tu BD. Asegúrate de que el puerto (5432) y el nombre de la BD sean correctos.
+    url: jdbc:postgresql://localhost:5432/db_users
+    username: tu_usuario_postgres
+    password: tu_password_postgres
+  jpa:
+    # Dialecto específico de PostgreSQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      # Estrategia de creación de tablas:
+      # update: Mantiene los datos, solo actualiza el esquema. (Recomendado para desarrollo)
+      # create: Crea tablas en cada arranque (¡PELIGRO: borra datos!)
+      # none: No hace nada.
+      ddl-auto: update 
+    show-sql: true # Muestra las consultas SQL en la consola
